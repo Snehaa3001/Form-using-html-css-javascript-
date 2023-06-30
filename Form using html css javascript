@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Basic styling for the form */
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="submit"] {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" required>
+
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" required>
+
+    <label for="email">Email Id:</label>
+    <input type="email" id="email" required>
+
+    <label for="report">Upload Health Report:</label>
+    <input type="file" id="report" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // Function to handle form submission
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Get form values
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var weight = document.getElementById("weight").value;
+      var email = document.getElementById("email").value;
+      var report = document.getElementById("report").files[0];
+
+      // Perform any additional validation or processing here
+
+      // Display form data
+      console.log("Name: " + name);
+      console.log("Age: " + age);
+      console.log("Weight: " + weight);
+      console.log("Email Id: " + email);
+      console.log("Uploaded Report: " + report.name);
+      console.log("Uploaded Report Size: " + report.size + " bytes");
+
+      // Reset the form
+      document.getElementById("myForm").reset();
+    }
+
+    // Add submit event listener to the form
+    document.getElementById("myForm").addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>
